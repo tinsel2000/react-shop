@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import Home from "./components/Home.jsx"
+import HomeWelcome from "./components/HomeWelcome.jsx"
 import Shop from "./components/Shop.jsx";
 import Basket from "./components/Basket";
 import ErrorPage from "./components/ErrorPage";
@@ -21,7 +22,7 @@ function App() {
     }, [setProducts]);
 
     useEffect(() => {
-      let total = 0
+      let total = basketTotal
       products.map((item) => (total + item.quantity))
       setBasketTotal(total)
     }, [products])
@@ -34,6 +35,7 @@ function App() {
           element={<Home 
             basketTotal={basketTotal}/>}
         >
+          <Route index element={<HomeWelcome basketTotal={basketTotal} />} />
           <Route 
             path="shop" 
             element={<Shop 

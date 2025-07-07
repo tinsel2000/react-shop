@@ -35,7 +35,10 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
 
     const handleSubmitToBasket = (e) => {
       e.preventDefault();
-      let formQuantityValue = document.querySelector(".input-quantity").value;
+      let formQuantityValue = parseInt(e.target.parentNode.querySelector(".input-quantity").value)
+      //console.log("new num: " + num);
+      //let formQuantityValue = parseInt(document.querySelector(".input-quantity").value);
+      console.log("formQuantityValue being submitted: " + formQuantityValue);
       //formQuantity.value += 1;
 
       let arrayIndex = Number(e.target.parentNode.parentNode.id) - 1
@@ -45,7 +48,7 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
       updatedProducts[arrayIndex] = updatedProduct
       //setProducts(updatedProducts)
       setBasketTotal(basketTotal => parseInt(basketTotal) + parseInt(formQuantityValue) );
-      console.log("new product info: item: " + updatedProduct + "quantity: " + updatedProduct.quantity);
+      //console.log("new product info: item: " + updatedProduct + "quantity: " + updatedProduct.quantity);
     }
 
     const handleChangeToQuantity = (e) => {
@@ -61,7 +64,6 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
         updatedProduct.quantity = 0
         updatedProducts[arrayIndex] = updatedProduct
         setProducts(updatedProducts);
-        //setBasketTotal(0)
       }
       if (number >= 0 && number < 100) {
         console.log("value is not empty")

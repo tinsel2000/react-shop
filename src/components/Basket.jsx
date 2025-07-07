@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Basket = ({products, basketTotal, setBasketTotal}) => {
+const Basket = ({products, setProducts, basketTotal, setBasketTotal}) => {
   const [basketItems, setBasketItems] = useState([])
 
     useEffect(() => {
@@ -12,15 +12,17 @@ const Basket = ({products, basketTotal, setBasketTotal}) => {
     e.preventDefault();
     let formQuantityValue = 0;
     let arrayIndex = Number(e.target.parentNode.id) - 1
-    let updatedBasketItems = [...basketItems];
-    let updatedBasketItem = {...updatedBasketItems[arrayIndex]};
-    if (basketTotal >= Number(updatedBasketItem.quantity)) {
-      setBasketTotal(basketTotal - Number(updatedBasketItem.quantity) )
+    let updatedProducts = [...products];
+    let updatedProduct = {...updatedProducts[arrayIndex]};
+    if (basketTotal >= Number(updatedProduct.quantity)) {
+      setBasketTotal(basketTotal - Number(updatedProduct.quantity) )
     }
-    //console.log("removing: " + updatedBasketItem.title + "quanttity of this is: " + formQuantityValue);
-    updatedBasketItem.quantity = formQuantityValue
-    updatedBasketItems[arrayIndex] = updatedBasketItem
-    setBasketItems(updatedBasketItems.filter(item => item.quantity > 0) );
+    updatedProduct.quantity = formQuantityValue
+    updatedProducts[arrayIndex] = updatedProduct
+    setProducts(updatedProducts);
+    //console.log("comparing values 1: " + basketTotal + " and 2: " + Number(updatedProduct.quantity));
+    //console.log("removing: " + updatedProduct.title + " quantity of this is: " + formQuantityValue + " arrayIndex is: " + arrayIndex);
+    setBasketItems(products.filter(item => item.quantity > 0) );
   }
 
   return (
