@@ -25,7 +25,7 @@ function App() {
       let total = basketTotal
       products.map((item) => (total + item.quantity))
       setBasketTotal(total)
-    }, [products])
+    }, [products, basketTotal])
 
   return (
     <BrowserRouter>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const Basket = ({products, setProducts, basketTotal, setBasketTotal}) => {
+  console.log("Basket rendered");
   const [basketItems, setBasketItems] = useState([])
 
     useEffect(() => {
