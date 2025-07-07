@@ -2,7 +2,7 @@
   "name": "react-shop",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://tinsel2000.github.io/react-shop/"
+  "homepage": "https://tinsel2000.github.io/react-shop/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
