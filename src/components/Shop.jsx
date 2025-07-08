@@ -5,19 +5,12 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
 
     const handleAddToBasket = (e) => {
       e.preventDefault();
-      //let formQuantity = document.querySelector(".input-quantity");
-      //formQuantity.value += 1;
-      //console.log(formQuantity.value);
-      //console.log( e.target.parentNode.parentNode.id );
       let arrayIndex = Number(e.target.parentNode.parentNode.id) - 1
-      //console.log("arrayIndex: " + arrayIndex);
       let updatedProducts = [...products];
       let updatedProduct = {...updatedProducts[arrayIndex]};
       updatedProduct.quantity += 1
       updatedProducts[arrayIndex] = updatedProduct
       setProducts(updatedProducts);
-      //setBasketTotal(basketTotal => parseInt(basketTotal) + 1)
-      //console.log(typeof basketTotal)
     }
 
     const handleRemoveFromBasket = (e) => {
@@ -29,26 +22,20 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
         updatedProduct.quantity -= 1
         updatedProducts[arrayIndex] = updatedProduct
         setProducts(updatedProducts);
-        //setBasketTotal(basketTotal => parseInt(basketTotal) - 1)
       }
     }
 
     const handleSubmitToBasket = (e) => {
       e.preventDefault();
       let formQuantityValue = parseInt(e.target.parentNode.querySelector(".input-quantity").value)
-      //console.log("new num: " + num);
-      //let formQuantityValue = parseInt(document.querySelector(".input-quantity").value);
       console.log("formQuantityValue being submitted: " + formQuantityValue);
-      //formQuantity.value += 1;
 
       let arrayIndex = Number(e.target.parentNode.parentNode.id) - 1
       let updatedProducts = [...products];
       let updatedProduct = {...updatedProducts[arrayIndex]};
       updatedProduct.quantity += formQuantityValue
       updatedProducts[arrayIndex] = updatedProduct
-      //setProducts(updatedProducts)
       setBasketTotal(basketTotal => parseInt(basketTotal) + parseInt(formQuantityValue) );
-      //console.log("new product info: item: " + updatedProduct + "quantity: " + updatedProduct.quantity);
     }
 
     const handleChangeToQuantity = (e) => {
@@ -70,8 +57,6 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
         updatedProduct.quantity = number
         updatedProducts[arrayIndex] = updatedProduct
         setProducts(updatedProducts);
-        //console.log("Adding: " + basketTotal + "with: " + number);
-        //setBasketTotal(basketTotal + number)
         let total = 0
         const mapCopy = products.map((item) => (item))
         console.log("mapCopy length:" + mapCopy.length );
@@ -80,7 +65,6 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
           total += parseInt(mapCopy[i].quantity)
         }
         console.log("total: " + total);
-        //setBasketTotal(total)
       }
       console.log("new product info: item: " + updatedProduct.title + "quantity: " + updatedProduct.quantity);
     }

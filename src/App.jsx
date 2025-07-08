@@ -24,17 +24,8 @@ function App() {
     products.map((item) => (total + item.quantity))
     setBasketTotal(total)
   }, [products, basketTotal]);
-/*
-  useEffect(() => {
-    console.log("Use effect occuring");
-    let total = basketTotal
-    products.map((item) => (total + item.quantity))
-    setBasketTotal(total)
-  }, [products, basketTotal])
-*/
 
   if (!products) {
-    // You can return a spinner here if you want
     return <div>Loading...</div>;
   }
 

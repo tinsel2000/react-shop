@@ -5,7 +5,6 @@ const Basket = ({products, setProducts, basketTotal, setBasketTotal}) => {
   const [basketItems, setBasketItems] = useState([])
 
     useEffect(() => {
-    // Filter products with quantity > 0 and set as basketItems
     setBasketItems(products.filter(item => item.quantity > 0));
   }, [products]);
 
@@ -21,8 +20,6 @@ const Basket = ({products, setProducts, basketTotal, setBasketTotal}) => {
     updatedProduct.quantity = formQuantityValue
     updatedProducts[arrayIndex] = updatedProduct
     setProducts(updatedProducts);
-    //console.log("comparing values 1: " + basketTotal + " and 2: " + Number(updatedProduct.quantity));
-    //console.log("removing: " + updatedProduct.title + " quantity of this is: " + formQuantityValue + " arrayIndex is: " + arrayIndex);
     setBasketItems(products.filter(item => item.quantity > 0) );
   }
 
