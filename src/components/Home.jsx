@@ -1,13 +1,11 @@
-import NavBar from "./NavBar.jsx";
 import { Outlet, Link } from "react-router-dom";
 
-function Home({basketTotal}) {
+function Home() {
     return(
         <>
-        <div>
-            <NavBar basketTotal={basketTotal}/>
+            <div>This is my shop, please click on one of the above buttons to begin</div>
+            <Link to="shop">Shop page</Link>
             <Outlet />
-        </div>
         </>
     )
 };

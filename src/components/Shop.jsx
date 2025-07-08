@@ -84,7 +84,7 @@ const Shop = ({products, setProducts, setBasketTotal}) => {
       }
       console.log("new product info: item: " + updatedProduct.title + "quantity: " + updatedProduct.quantity);
     }
-//Change all to have submit and remove button instead of the above bullshit
+
     return (
       <>
         <p>Choose items to add to your Basket</p>
